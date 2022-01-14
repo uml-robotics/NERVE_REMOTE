@@ -1,0 +1,11 @@
+<!-- This launch file starts the connection between the 4 teensys on the shelf and starts a reader node on the pi -->
+<launch>
+    <!-- Launch the serial connections for the teensys-->
+    <node name="photoresistor_publisher_1" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM0" />
+    <node name="photoresistor_publisher_2" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM1" />
+    <node name="photoresistor_publisher_3" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM2" />
+    <node name="photoresistor_publisher_4" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM3" />
+
+    <!-- Launch the reader node-->
+    <node name="photoresistor_reader" pkg="shelf_test" type="photoresistor_reader" output="screen"/>
+</launch>
